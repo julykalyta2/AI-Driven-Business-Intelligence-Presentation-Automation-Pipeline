@@ -13,7 +13,7 @@ df = pd.read_csv(OUTPUT / "monthly_kpis.csv")
 revenue = df["effective_revenue"].sum()
 expenses = df["operating_expenses"].sum()
 noi = revenue - expenses
-occupancy = df["occupancy_rate"].mean()
+occupancy = (df["occupied_units"].sum() / df["units"].sum()) * 100
 
 # Handle occupancy stored as either a percentage or decimal
 if occupancy <= 1:
